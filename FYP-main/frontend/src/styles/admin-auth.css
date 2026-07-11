@@ -1,0 +1,41 @@
+/* Admin login — extends parent auth card layout */
+
+.admin-auth-avatar {
+  background: radial-gradient(circle at 30% 30%, #22d3ee 0%, #0891b2 55%, #0e7490 100%);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.45);
+}
+
+.admin-auth-mode {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem;
+  padding: 0.28rem;
+  margin-bottom: 1rem;
+  border-radius: 0.65rem;
+  background: rgba(8, 22, 48, 0.85);
+  border: 1.5px solid rgba(56, 189, 248, 0.35);
+}
+
+.admin-auth-mode__btn {
+  margin: 0;
+  padding: 0.5rem 0.35rem;
+  border: none;
+  border-radius: 0.45rem;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+
+.admin-auth-mode__btn--active {
+  background: rgba(56, 189, 248, 0.22);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.admin-auth-login {
+  margin-bottom: 0.65rem;
+}

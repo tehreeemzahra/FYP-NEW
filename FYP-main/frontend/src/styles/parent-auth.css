@@ -1,0 +1,316 @@
+/* Parent login — matches CyberQuest reference card */
+
+.parent-auth-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: #0a1628;
+}
+
+.parent-auth-screen__backdrop {
+  position: fixed;
+  inset: -5%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(18px) saturate(1.05);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.parent-auth-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 22rem;
+  border-radius: 1.25rem;
+  padding: 1.35rem 1.15rem 1.25rem;
+  background: linear-gradient(180deg, rgba(10, 28, 58, 0.96) 0%, rgba(6, 18, 40, 0.98) 100%);
+  border: 2px solid rgba(56, 189, 248, 0.65);
+  box-shadow:
+    0 0 32px rgba(34, 211, 238, 0.22),
+    0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.parent-auth-back {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  border: none;
+  background: rgba(15, 40, 75, 0.9);
+  color: #e0f2fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.1s ease, transform 0.1s ease;
+}
+
+.parent-auth-back:active {
+  transform: scale(0.94);
+  background: rgba(30, 64, 110, 0.95);
+}
+
+.parent-auth-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0.5rem;
+  margin-bottom: 1.15rem;
+}
+
+.parent-auth-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.65rem;
+  background: radial-gradient(circle at 30% 30%, #a855f7 0%, #6d28d9 55%, #4c1d95 100%);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.45);
+  color: #fff;
+}
+
+.parent-auth-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.parent-auth-subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.72);
+  text-align: center;
+}
+
+.parent-auth-field {
+  margin-bottom: 0.85rem;
+}
+
+.parent-auth-label {
+  display: block;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.35rem;
+  padding-left: 0.15rem;
+}
+
+.parent-auth-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.65rem;
+  padding: 0 0.75rem;
+  border-radius: 0.65rem;
+  background: rgba(8, 22, 48, 0.95);
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.parent-auth-input-wrap svg {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  color: #38bdf8;
+}
+
+.parent-auth-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #e2e8f0;
+  font-size: 0.82rem;
+}
+
+.parent-auth-input::placeholder {
+  color: rgba(148, 163, 184, 0.75);
+}
+
+.parent-auth-eye {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  padding: 0.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.parent-auth-error {
+  margin-bottom: 0.75rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.55rem;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(248, 113, 113, 0.45);
+  color: #fecaca;
+  font-size: 0.75rem;
+  display: flex;
+  gap: 0.4rem;
+  align-items: flex-start;
+}
+
+.parent-auth-login {
+  margin-bottom: 0.65rem;
+}
+
+.parent-auth-forgot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  margin: 0 0 1rem;
+  padding: 0.25rem 0;
+  border: none;
+  background: none;
+  border-radius: 0;
+  color: #7dd3fc;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: color 0.1s ease, opacity 0.1s ease;
+}
+
+.parent-auth-forgot:active {
+  opacity: 0.8;
+}
+
+.parent-auth-forgot svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  color: #38bdf8;
+}
+
+@media (hover: hover) {
+  .parent-auth-forgot:hover {
+    color: #bae6fd;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+.parent-auth-footer {
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.parent-auth-footer button {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-left: 0.2rem;
+  color: #38bdf8;
+  font-weight: 700;
+  font-size: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.parent-auth-footer button:hover {
+  color: #7dd3fc;
+}
+
+@media (min-width: 480px) {
+  .parent-auth-card {
+    max-width: 24rem;
+    padding: 1.5rem 1.35rem 1.35rem;
+  }
+
+  .parent-auth-title {
+    font-size: 1.85rem;
+  }
+}
+
+.parent-auth-card--register {
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.35) transparent;
+}
+
+.parent-auth-card--register .parent-auth-header {
+  margin-bottom: 1rem;
+}
+
+.parent-auth-card--register .parent-auth-field {
+  margin-bottom: 0.75rem;
+}
+
+.parent-auth-children-section {
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.parent-auth-children-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.parent-auth-add-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px dashed rgba(125, 211, 252, 0.45);
+  background: rgba(14, 116, 144, 0.15);
+  color: #bae6fd;
+  border-radius: 9999px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.parent-auth-child-block {
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 0.85rem;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background: rgba(8, 24, 48, 0.35);
+}
+
+.parent-auth-child-block__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(186, 230, 253, 0.85);
+}
+
+.parent-auth-remove-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border: none;
+  border-radius: 9999px;
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  cursor: pointer;
+}

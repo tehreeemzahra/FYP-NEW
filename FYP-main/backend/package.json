@@ -1,0 +1,22 @@
+{
+  "name": "cyberquest-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test-connection": "node test-connection.js",
+    "setup-atlas": "powershell -ExecutionPolicy Bypass -File setup-atlas.ps1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

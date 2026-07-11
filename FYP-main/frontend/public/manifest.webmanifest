@@ -1,0 +1,10 @@
+{
+  "name": "CyberQuest",
+  "short_name": "CyberQuest",
+  "description": "Educational cybersecurity game for kids and parents",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#4a8bb8",
+  "theme_color": "#4a8bb8",
+  "orientation": "portrait"
+}

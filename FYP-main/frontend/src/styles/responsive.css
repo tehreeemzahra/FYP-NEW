@@ -1,0 +1,63 @@
+/**
+ * Global responsive helpers — mobile-first, APK-safe areas, touch targets.
+ */
+
+/* Bottom nav + fixed footers respect notches / home indicator */
+.cq-nav-bar {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0px));
+}
+
+.cq-nav-bar--top {
+  padding-top: max(0.75rem, env(safe-area-inset-top, 0px));
+}
+
+/* Minimum 44px touch target (WCAG / child-friendly) */
+.cq-touch-target {
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+}
+
+/* Fluid tile keyboard for password / symbol games */
+.cq-tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(2.75rem, 1fr));
+  gap: 0.5rem;
+}
+
+/* Prevent flex children from forcing horizontal scroll */
+.cq-min-w-0 {
+  min-width: 0;
+}
+
+/* Toast / banners below notch */
+.cq-safe-top {
+  top: max(1rem, env(safe-area-inset-top, 1rem));
+}
+
+/* Scrollable tabs without hiding overflow on narrow screens */
+.cq-tab-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+@media (max-width: 380px) {
+  .cq-tab-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Welcome tap zones — always tappable on phones */
+.welcome-action--parent,
+.welcome-action--child {
+  min-height: 44px;
+}
+
+/* Landscape phones: fit welcome art by height */
+@media (orientation: landscape) and (max-height: 500px) {
+  .welcome-screen__art {
+    width: auto;
+    height: min(100dvh, 100vh);
+    max-width: 100vw;
+  }
+}
