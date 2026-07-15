@@ -73,7 +73,7 @@ export function PasswordCastle({ onClose }: PasswordCastleProps) {
         setCompleted((c) => (c.includes(flow.level) ? c : [...c, flow.level]));
       }}
       onDoneMenu={() => flow.setScreen('menu')}
-      onDoneNext={flow.level < 6 ? () => { flow.setLevel((flow.level + 1) as Level); flow.setScreen('play'); } : undefined}
+      onDoneNext={flow.level < 6 ? () => flow.startNextLevel() : undefined}
     />
   );
 }

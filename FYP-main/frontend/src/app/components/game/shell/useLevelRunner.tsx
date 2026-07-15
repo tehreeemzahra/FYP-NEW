@@ -31,13 +31,17 @@ export function useLevelRunner({
     onComplete(feedback.getStats());
   }, [feedback, onComplete]);
 
+  // Fill by completed challenges so Step 5/5 is not already 100% while still playing.
+  const safeTotal = Math.max(totalSteps, 1);
+  const displayStep = Math.min(Math.max(currentStep, 1), safeTotal);
+  const completed = Math.max(0, currentStep - 1);
   const shellProps = {
     title,
     subtitle,
     mechanic,
     hint,
-    progress: currentStep / totalSteps,
-    progressLabel: `Step ${currentStep} of ${totalSteps}`,
+    progress: Math.min(1, completed / safeTotal),
+    progressLabel: `Step ${displayStep} of ${safeTotal}`,
     onBack,
   };
 

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowLeft, Lock, LucideIcon, Sparkles } from 'lucide-react';
+import { ArrowLeft, Check, Lock, LucideIcon, Sparkles } from 'lucide-react';
 import type { GameLevel } from '../types';
 import { playUiClick } from '../../playUiClick';
 import { staggerContainer, staggerItem, cardHover } from '../../visual/motionPresets';
@@ -88,19 +88,26 @@ export function ModuleMenu({ moduleTitle, moduleSubtitle, levels, completed, onB
                 playUiClick();
                 onStart(card.level);
               }}
-              className={`cq-level-card text-left p-5 bg-gradient-to-br ${card.color} relative disabled:opacity-50 disabled:cursor-not-allowed`}
+              className={`cq-level-card text-left p-5 pr-14 bg-gradient-to-br ${card.color} relative disabled:opacity-50 disabled:cursor-not-allowed`}
             >
               {!unlocked && (
                 <div className="absolute inset-0 bg-black/55 flex items-center justify-center z-10 backdrop-blur-[2px]">
                   <Lock className="w-8 h-8 text-white/80" />
                 </div>
               )}
+              {done && (
+                <span
+                  className="absolute top-1/2 right-3 z-[2] -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white/50 bg-white/15 backdrop-blur-sm"
+                  aria-label="Completed"
+                >
+                  <Check className="h-5 w-5 text-emerald-400 stroke-[3]" />
+                </span>
+              )}
               <div className="flex items-center gap-3 mb-2 relative z-[1]">
                 <div className="p-2 rounded-xl bg-white/15 backdrop-blur-sm">
                   <Icon className="w-7 h-7" />
                 </div>
                 <span className="text-xs font-bold bg-white/25 px-2.5 py-0.5 rounded-full">Level {card.level}</span>
-                {done && <span className="cq-chip-success text-xs font-bold px-2.5 py-0.5 rounded-full">✓ Done</span>}
               </div>
               <h3 className="font-bold text-lg mb-1 relative z-[1]">{card.title}</h3>
               <p className="text-white/90 text-sm mb-2 relative z-[1]">{card.description}</p>

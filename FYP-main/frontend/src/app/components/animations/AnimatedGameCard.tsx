@@ -47,17 +47,30 @@ export function AnimatedGameCard({
       disabled={disabled}
       aria-label={disabled ? `${alt} — paused by admin` : alt}
       aria-disabled={disabled}
-      className={`relative aspect-square overflow-hidden rounded-2xl sm:rounded-3xl ${
+      className={`relative w-full h-full aspect-square overflow-hidden rounded-2xl sm:rounded-3xl ${
         moduleArt || isSprite
           ? 'bg-transparent shadow-md hover:shadow-[0_8px_28px_rgba(0,0,0,0.35)]'
           : `shadow-xl ring-2 ring-white/25 hover:ring-cyan-400/60 ${gradient}`
       } ${disabled ? 'cursor-not-allowed opacity-55 grayscale-[0.35]' : ''}`}
       {...cardEntrance(delay)}
-      whileHover={disabled ? undefined : { scale: 1.04, y: -6 }}
-      whileTap={disabled ? undefined : { scale: 0.96 }}
+      whileHover={disabled ? undefined : { scale: 1.02, y: -3 }}
+      whileTap={disabled ? undefined : { scale: 0.97 }}
       transition={subwayBounce}
       style={{ WebkitTapHighlightColor: 'transparent' }}
     >
+      {moduleArt && !disabled && (
+        <motion.div
+          className="absolute inset-0 z-20 rounded-2xl sm:rounded-3xl pointer-events-none"
+          animate={{
+            boxShadow: [
+              'inset 0 0 0 1px rgba(34,211,238,0.1)',
+              'inset 0 0 0 1px rgba(34,211,238,0.32)',
+              'inset 0 0 0 1px rgba(34,211,238,0.1)',
+            ],
+          }}
+          transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut', delay: delay * 0.4 }}
+        />
+      )}
       {!isSprite && !moduleArt && (
         <>
           <motion.div
@@ -80,8 +93,8 @@ export function AnimatedGameCard({
           alt={alt}
           draggable={false}
           className="absolute inset-0 h-full w-full object-cover object-center select-none"
-          animate={{ y: [0, -3, 0] }}
-          transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', delay: delay * 0.3 }}
+          animate={{ scale: [1, 1.015, 1] }}
+          transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut', delay: delay * 0.3 }}
         />
       ) : isSprite && layout ? (
         <motion.div

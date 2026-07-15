@@ -74,7 +74,9 @@ export function ModuleShell({
         />
       )}
 
-      {screen === 'play' && <LevelComponent onBack={onLevelBack} onComplete={onLevelComplete} />}
+      {screen === 'play' && (
+        <LevelComponent key={level} onBack={onLevelBack} onComplete={onLevelComplete} />
+      )}
 
       {screen === 'done' && (
         <LevelCompleteScreen
@@ -103,6 +105,12 @@ export function useModuleFlow() {
     setShowInstructions(true);
   };
 
+  /** After completing a level — show the next level's instructions (do not jump into play). */
+  const startNextLevel = () => {
+    setLevel((l) => (l < 6 ? ((l + 1) as GameLevel) : l));
+    setShowInstructions(true);
+  };
+
   const beginPlay = () => {
     setShowInstructions(false);
     setScreen('play');
@@ -125,6 +133,7 @@ export function useModuleFlow() {
     setShowInstructions,
     lastScore,
     startLevel,
+    startNextLevel,
     beginPlay,
     finishLevel,
   };
